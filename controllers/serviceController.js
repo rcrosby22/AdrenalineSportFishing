@@ -1,9 +1,18 @@
 import Service from '../models/Service';
 
-export const getAllServices = async (req, res) => {
-  // Get all services logic
-};
+const getServiceById = (req, res) => {
+  const { id } = req.params;
+  const service = Service.getById(id);
 
-export const getServiceById = async (req, res) => {
-  // Get a service by ID logic
+  if (!service) {
+    return res.status(404).json({ error: 'Service not found.' });
+  }
+
+  res.render('/', {
+    service,
+  });
+}
+
+module.exports = {
+  getServiceById,
 };

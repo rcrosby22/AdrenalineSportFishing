@@ -4,6 +4,10 @@ const cors = require('cors')
 
 const AuthRouter = require('./routes/AuthRouters')
 const PostRouter = require('./routes/PostRouters')
+const ServiceRouter = require('./routes/ServiceRoutes');
+const BookingRouter = require('./routes/BookingRoutes')
+const ReviewRouter = require('./routes/ReviewRoutes');
+
 
 const PORT = process.env.PORT || 3001
 
@@ -18,6 +22,9 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
+app.use('/services', ServiceRouter);
+app.use('/bookings', BookingRouter);
+app.use('/reviews', ReviewRouter);
 
 app.use('/', (req, res) => {
   res.send(`Connected!`)
@@ -26,3 +33,6 @@ app.use('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Running Express server on Port ${PORT} . . .`)
 })
+
+
+module.exports = app;

@@ -1,14 +1,19 @@
 import Booking from '../models/Booking';
 
-const CreateBooking = async (req, res) => {
-  // Create a booking logic
+const createBooking = async (req, res) => {
+  try {
+    const { date, details } = req.body;
+    const booking = new Booking({ date, details });
+    await booking.save();
+    res.status(201).json({ message: 'Booking created successfully!', booking });
+  } catch (error) {
+    throw error
+  }
 };
 
-const GetBookingsByUser = async (req, res) => {
-  // Get bookings by user logic
-};
+
 
 module.exports = {
   CreateBooking,
-  GetBookingsByUser
+  
 }
