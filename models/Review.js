@@ -11,6 +11,6 @@ const reviewSchema = new Schema({
   
 );
 
-const Booking = mongoose.model('Service', reviewSchema);
+const Review = mongoose.model('Review', reviewSchema)
 
-export default Booking
+module.exports=Review

@@ -2,11 +2,12 @@ const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
 
-const AuthRouter = require('./routes/AuthRouters')
-const PostRouter = require('./routes/PostRouters')
-const ServiceRouter = require('./routes/ServiceRoutes');
-const BookingRouter = require('./routes/BookingRoutes')
-const ReviewRouter = require('./routes/ReviewRoutes');
+const authRouter = require('./routes/authRouter')
+
+const bookingRouter = require('./routes/bookingRouter');
+const reviewRouter = require('./routes/reviewRouter');
+const serviceRouter = require('./routes/serviceRouter');
+
 
 
 const PORT = process.env.PORT || 3001
@@ -15,16 +16,21 @@ const db = require('./db')
 
 const app = express()
 
+//middleware
+
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/auth', AuthRouter)
-app.use('/posts', PostRouter)
-app.use('/services', ServiceRouter);
-app.use('/bookings', BookingRouter);
-app.use('/reviews', ReviewRouter);
+//routes
+
+app.use('/auth', authRouter)
+
+app.use('/bookings', bookingRouter);
+app.use('/reviews', reviewRouter);
+app.use('/services', serviceRouter);
+
 
 app.use('/', (req, res) => {
   res.send(`Connected!`)

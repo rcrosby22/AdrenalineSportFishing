@@ -1,4 +1,4 @@
-import Review from '../models/Review';
+const Review = require ( '../models/Review');
 
 const getReviewsByService = async (req, res) => {
   const { serviceId } = req.params;
@@ -8,8 +8,6 @@ const getReviewsByService = async (req, res) => {
     res.json(reviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);
-    // You can choose to log the error for debugging purposes
-    // or simply ignore it without sending a response
   }
 };
 

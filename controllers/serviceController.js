@@ -1,4 +1,4 @@
-import Service from '../models/Service';
+const Service =require( '../models/Service');
 
 const getServiceById = (req, res) => {
   const { id } = req.params;
@@ -8,9 +8,7 @@ const getServiceById = (req, res) => {
     return res.status(404).json({ error: 'Service not found.' });
   }
 
-  res.render('/', {
-    service,
-  });
+  res.render('/', {service,});
 }
 
 module.exports = {
