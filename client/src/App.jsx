@@ -1,6 +1,6 @@
 
 import './App.css'
-import BookingForm from './components/BookingForm'
+import Booking from './components/Booking'
 import Reviews from './components/Reviews'
 import About from './components/About'
 import Navbar from './components/Navbar'
@@ -20,7 +20,7 @@ const App = () => {
         <About/>
         <Services/>
         <ServiceDetails/>
-        <BookingForm/>
+        <Booking/>
         <Reviews/>
         <Footer/>
 
