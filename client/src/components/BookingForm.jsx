@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { DatePicker } from '@gsebdev/react-simple-datepicker';
 
 const BookingForm = () => {
   const initialState = {
@@ -20,6 +21,10 @@ const BookingForm = () => {
     } catch (error) {
       console.error('Error submitting booking:', error);
     }
+  };
+
+  const handleDateChange = (date) => {
+    setFormState({ ...formState, tripDate: date });
   };
 
   const handleChange = (event) => {
@@ -45,12 +50,10 @@ const BookingForm = () => {
         required
       />
       <label htmlFor="tripDate">Date of Trip:</label>
-      <input
-        type="date"
+      <DatePicker
         id="tripDate"
-        onChange={handleChange}
+        onChange={handleDateChange}
         value={formState.tripDate}
-        required
       />
       <label htmlFor="numberOfPeople">Number of People:</label>
       <input
@@ -60,7 +63,7 @@ const BookingForm = () => {
         value={formState.numberOfPeople}
         required
       />
-      <button type="submit">Book Trip</button>
+      <button type="submit">Book Now!</button>
     </form>
   );
 };
