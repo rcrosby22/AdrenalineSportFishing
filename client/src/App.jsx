@@ -1,24 +1,26 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-
+import Footer from './components/Footer'
 import Home from './pages/Home'
+import BookingPage from './pages/BookingPage'
+
+import Navbar from './components/Navbar'
 
 const App = () => {
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <Navbar /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
+      <Navbar />
 
-        {/* <Route path="/bookingPage"element={<BookingPage/>} /> */}
+      <Routes>
+      
+        <Route path="/booking" element={<BookingPage />} />
+        <Route path="/" element={<Home />} />
       </Routes>
-      {/* <div className="container mx-auto p-4">
-          <Reviews />
-          <ReviewForm />
-        </div>
-        <Footer /> */}
+
+      <footer className="footer">
+        <Footer />
+      </footer>
     </div>
   )
 }

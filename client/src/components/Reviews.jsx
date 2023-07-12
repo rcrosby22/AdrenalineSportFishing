@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'
+
 
 const Reviews = ({ reviews }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

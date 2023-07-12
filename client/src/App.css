@@ -1,5 +1,14 @@
 /* App.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* photos reviews  */
+body{
+  background-color: #85d7e5;
+  min-height: 300vh;
+  overflow: auto;
+}
 .carousel {
   display: flex;
   align-items: center;
@@ -34,3 +43,38 @@
 .prev {
   transform: rotate(180deg);
 }
+.app-container {
+  min-height: 100vh;
+  position: relative;
+}
+/* footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 3px;
+  text-align: center;
+}
+
+.footer-content {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#hero {
+  background-image: url('./assets/images/Adrenaline_sport_fishing/FB_IMG_1689166479415.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 20rem;
+}
+/*
+@media screen and (min-width: 800px){
+  body {
+    color: red;
+  }
+}
+*/
