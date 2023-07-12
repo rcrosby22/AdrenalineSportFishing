@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { DatePicker } from '@gsebdev/react-simple-datepicker';
+import { DatePicker } from 'react-datepicker';
 
 const BookingForm = () => {
   const initialState = {
