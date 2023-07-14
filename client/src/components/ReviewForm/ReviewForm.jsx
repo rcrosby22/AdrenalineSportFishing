@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
+import "./ReviewForm.css"
+import { FormControl } from '@mui/material';
 
 const ReviewForm = () => {
   const [name, setName] = useState('');
@@ -20,11 +24,15 @@ const ReviewForm = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Submit Review</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label htmlFor="name" className="block font-bold mb-1">
+    <div className="ReviewForm">
+      <h2 className="text-2xl font-bold mb-4">How was your trip!</h2>
+      {/* <form onSubmit={handleSubmit}> */}
+        <FormControl>
+
+        
+        
+    
+          {/* <label htmlFor="name" className="block font-bold mb-1">
             Your Name:
           </label>
           <input
@@ -34,21 +42,22 @@ const ReviewForm = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-          />
-        </div>
-        <div className="mb-4">
-          <label htmlFor="comment" className="block font-bold mb-1">
-            Comment:
-          </label>
-          <textarea
+          /> */}
+          <TextField className="FormInput" label="Your Name"/>
+     
+         {/* <label htmlFor="comment" className="block font-bold mb-1">
+            Comment: 
+          </label> */}
+          {/* <textarea
             id="comment"
             className="border border-gray-300 rounded px-3 py-2 w-full"
             rows="4"
             value={comment}
             onChange={(e) => setComment(e.target.value)}
             required
-          ></textarea>
-        </div>
+          ></textarea> */}
+          <TextField className="FormInput" label="Comments" multiline rows={6} />
+      
         <div className="mb-4">
           <label htmlFor="image" className="block font-bold mb-1">
             Upload Image:
@@ -61,13 +70,15 @@ const ReviewForm = () => {
             className="border border-gray-300 rounded px-3 py-2 w-full"
           />
         </div>
-        <button
+        <Button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          variant='contained'
+          className="FormInput"
         >
           Submit
-        </button>
-      </form>
+        </Button>
+        </FormControl>
+      {/* </form> */}
     </div>
   );
 };

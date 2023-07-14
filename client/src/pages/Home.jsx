@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import Navbar from '../components/Navbar'
 import Subscribe from '../components/Subscribe'
 import Services from '../components/Services'
-import Reviews from '../components/'
+import Reviews from './Reviews'
 
 
 const Home = () => {
@@ -44,6 +44,12 @@ const Home = () => {
       <p>Explore our services and book your fishing adventure now!</p>
       <Link to="/booking">Book Now</Link>
         </div>
+        <Card>
+        <CardContent>
+          
+        </CardContent>
+
+      </Card>
 
       <Subscribe />
       
