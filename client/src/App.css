@@ -5,7 +5,7 @@
 
 /* photos reviews  */
 body{
- 
+ background-color: rgb(142, 141, 141);
   min-height: 300vh;
   overflow: auto;
 }
@@ -66,10 +66,10 @@ body{
 }
 
 #hero {
-  background-image: url('./assets/images/Adrenaline_sport_fishing/FB_IMG_1689166479415.jpg');
+  background-image: url('/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/Screenshot 2023-07-15 at 12.12.18 AM.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 20rem;
+  min-height: 40rem;
 }
 /*
 @media screen and (min-width: 800px){
@@ -78,3 +78,37 @@ body{
   }
 }
 */
+/* services */
+.service-image {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.service-image img {
+  max-width: 100%;
+  max-height: 100$;
+  object-fit: cover;
+}
+
+
+.service-title {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.service-description {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.services-list {
+  display: flex;
+  gap: 20px;
+}
+

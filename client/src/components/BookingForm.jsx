@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import {DatePicker} from '@mui/x-date-pickers/DatePicker'
-import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider'
-import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { FormControl } from '@mui/material'
+import Button from '@mui/material/Button'
 
 const BookingForm = () => {
   const initialState = {
@@ -37,44 +39,44 @@ const BookingForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        onChange={handleChange}
-        value={formState.email}
-        required
-      />
-      <label htmlFor="phoneNumber">Phone Number:</label>
-      <input
-        type="tel"
-        id="phoneNumber"
-        onChange={handleChange}
-        value={formState.phoneNumber}
-        required
-      />
-      <label htmlFor="tripDate">Date of Trip:</label>
-      <LocalizationProvider 
-      dateAdapter={AdapterDayjs}>
-      <DatePicker
-      label="date"
+    <div className="BookingForm">
+      <form onSubmit={handleSubmit}>
+        <FormControl>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            onChange={handleChange}
+            value={formState.email}
+            required
+          />
+          <label htmlFor="phoneNumber">Phone Number:</label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            onChange={handleChange}
+            value={formState.phoneNumber}
+            required
+          />
+          <label htmlFor="tripDate">Date of Trip:</label>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker label="date" />
+          </LocalizationProvider>
 
-      />
-      </LocalizationProvider>
-        
-    
-
-      <label htmlFor="numberOfPeople">Number of People:</label>
-      <input
-        type="number"
-        id="numberOfPeople"
-        onChange={handleChange}
-        value={formState.numberOfPeople}
-        required
-      />
-      <button type="submit">Book Now!</button>
-    </form>
+          <label htmlFor="numberOfPeople">Number of People:</label>
+          <input
+            type="number"
+            id="numberOfPeople"
+            onChange={handleChange}
+            value={formState.numberOfPeople}
+            required
+          />
+          <Button type="submit" variant="contained" className="FormInput">
+            Submit
+          </Button>
+        </FormControl>
+      </form>
+    </div>
   )
 }
 

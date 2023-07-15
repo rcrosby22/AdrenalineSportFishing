@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import React, { useState } from 'react';
 import Register  from './pages/Register'
 import SignIn from './pages/SignIn'
+import About from './pages/About'
 
 
 
@@ -37,6 +38,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
+        <Route path="/about" element={<About/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/register" element={<SignIn/>} />
         <Route path="/reviews" element={<Reviews />} />

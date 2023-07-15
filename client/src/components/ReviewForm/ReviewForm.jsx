@@ -19,7 +19,7 @@ const ReviewForm = (props) => {
     console.log('Submitting review:', newReview)
     props.setReviews(props.reviews.concat([newReview.data]))
 
-    // Reset form
+    // reset form
     setName('')
     setComment('')
   }
