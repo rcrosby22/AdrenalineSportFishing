@@ -1,30 +1,51 @@
 import { Link } from 'react-router-dom'
 import SignIn from '../pages/SignIn'
+import Grid from '@mui/material/Grid'
 
 const Navbar = () => {
   return (
-    <nav className="navbar flex w-full border border-red-500 justify-between items-center">
-      <div className="p-2">Adrenaline Sport Fishing Charters</div>
-      <ul className="hidden sm:block">
-        <li>
-          <Link to="/booking" className="p-2">
-            Book Now!
-          </Link>
-          <Link to="/" className="p-2">
-            Home
-          </Link>
-          <a href="#first" className="p-2">
-            About
-          </a>
-          <Link to="/register" className="p-2">
-            Register
-          </Link>
-          <Link to="/SignIn" className="p-2">
-            Sign In
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <Grid
+      container
+      component="nav"
+      alignItems="center"
+      justifyContent="space-between"
+      sx={{ py: 2 }}
+    >
+      <Grid item>
+        <Link to="/" className="logo-link">
+          Adrenaline Sport Fishing
+        </Link>
+      </Grid>
+      <Grid item>
+        <ul className="nav-links" style={{ display: 'flex', gap: '1rem' }}>
+          <li>
+            <Link to="/booking" className="nav-link">
+              Book Now
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <a href="#first" className="nav-link">
+              About
+            </a>
+          </li>
+          <li>
+            <Link to="/register" className="nav-link">
+              Register
+            </Link>
+          </li>
+          <li>
+            <Link to="/signin" className="nav-link">
+              Sign In
+            </Link>
+          </li>
+        </ul>
+      </Grid>
+    </Grid>
   )
 }
 
