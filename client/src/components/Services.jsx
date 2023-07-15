@@ -27,8 +27,8 @@ No matter which charter you choose, you’ll have the opportunity to fish with t
             <img src={serviceImage1} alt="Service 1" className="service-image" />
           </div>
           <div className="service-content">
-            <h6 className="service-title">Service 1</h6>
-            <p className="service-description">Description of service 1</p>
+            <h6 className="service-title">Fishing Trips</h6>
+            <p className="service-description">Experience the thrill of fishing with Adrenaline Sport Fishing. Our Lake Erie trips offer incredible fishing opportunities, allowing you to reel in big catches and enjoy the joy of fishing. Join us for an unforgettable adventure on the water.</p>
           </div>
         </div>
         <div className="service">
@@ -36,8 +36,8 @@ No matter which charter you choose, you’ll have the opportunity to fish with t
             <img src={serviceImage2} alt="Service 2" className="service-image" />
           </div>
           <div className="service-content">
-            <h6 className="service-title">Service 2</h6>
-            <p className="service-description">Description of service 2</p>
+            <h6 className="service-title">Lets Cruise</h6>
+            <p className="service-description">Adrenaline Sport Fishing offers more than just fishing charters. We also provide memorable experiences such as sunset cruises and sightseeing trips. These special trips are tailored to your specific desires. Simply reach out to our Captain, and we will work together to create a customized trip that suits your preferences.</p>
           </div>
         </div>
       </div>

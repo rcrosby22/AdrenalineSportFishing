@@ -1,23 +1,52 @@
+import React from 'react';
+import { Grid, Typography } from '@mui/material';
+import aboutImage1 from '/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/FB_IMG_1689166436220.jpg';
 
 const About = () => {
-  return(
-    <div>
-      <h2>About</h2>
-      <p>
-      Welcome to Adrenaline Sport Fishing Charters. My name is Captain Pat
-        Crosby and I am obsessed with being on the water. I've had a lifelong
-        passion for fishing and anything to do with boats and being on our Seas.
-        I hold a 200 ton masters license as well as a 1600 ton mates license.
-        Over my Maritime career I've served on wooden square rigged tall ships
-        to cement carriers and 100,000 barrel petroleum carriers. Throughout my
-        career I've always kept a passion for offshore fishing in the beauty of
-        our Great Lakes. I believe this background provides me with the ability
-        to share my experiences and skills to provide you and your family or
-        friends with a truly memorable fishing charter. You're in good hands
-        with Adrenaline Sport Fishing charters. Captain Pat Crosby{' '}
-      </p>
+  return (
+    <Grid container spacing={2} alignItems="stretch">
+      <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ flex: 1, height: '100%' }}>
+          <img
+            src={aboutImage1}
+            alt="About Us"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <Typography variant="h2" gutterBottom>
+          About Us
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Welcome to Adrenaline Sport Fishing Charters! I'm Captain Pat Crosby,
+          and my lifelong passion for fishing and being on the water has led me
+          to create an unforgettable fishing experience for you and your family
+          or friends.
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          With my 200-ton masters license and 1600-ton mates license, combined
+          with years of experience serving on various types of vessels, from
+          wooden square-rigged tall ships to cement carriers and petroleum
+          carriers, I bring a wealth of knowledge and expertise to each fishing
+          charter.
+        </Typography>
+        <Typography variant="body1">
+          At Adrenaline Sport Fishing Charters, we specialize in offshore
+          fishing in the beautiful Great Lakes. Our goal is to provide you with
+          a truly memorable fishing adventure, where you can enjoy the thrill of
+          reeling in the big catch while surrounded by the stunning scenery of
+          the Great Lakes.
+        </Typography>
+        <Typography variant="body1">
+          Join us on board and experience the excitement and joy of fishing with
+          Adrenaline Sport Fishing Charters. You're in the right place as we
+          navigate the waters and create lasting memories on each fishing
+          charter. Book your trip with us today!
+        </Typography>
+      </Grid>
+    </Grid>
+  );
+};
 
-    </div>
-  )
-}
-export default About
+export default About;
