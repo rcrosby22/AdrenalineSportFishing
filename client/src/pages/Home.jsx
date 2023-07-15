@@ -1,24 +1,27 @@
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 // import Navbar from '../components/Navbar'
-import Subscribe from '../components/Subscribe'
-import Services from '../components/Services'
-import Reviews from './Reviews'
 
+import Services from '../components/Services'
+import Reviews from '../components/Reviews'
+import { Card, CardContent } from '@mui/material'
 
 const Home = () => {
+ 
   return (
     <div>
       <div id="hero" className="flex items-center justify-center">
-       
-        <h1 className="text-red-500 text-4xl font-bold mb-2">Welcome Aboard!</h1>
+      
       </div>
-     
+
       <div>
         <h1></h1>
         <img></img>
       </div>
-      <p id="first" className="repeatme text-md py-4 px-2 leading-6 text-md md:text-lg">
+      <p
+        id="About"
+        className="repeatme text-md py-4 px-2 leading-6 text-md md:text-lg"
+      >
         Welcome to Adrenaline Sport Fishing Charters. My name is Captain Pat
         Crosby and I am obsessed with being on the water. I've had a lifelong
         passion for fishing and anything to do with boats and being on our Seas.
@@ -31,33 +34,22 @@ const Home = () => {
         friends with a truly memorable fishing charter. You're in good hands
         with Adrenaline Sport Fishing charters. Captain Pat Crosby{' '}
       </p>
-      <p id="second">
-       
-      </p>
+      <p id="second"></p>
       {/* <About /> */}
 
       <Services />
       <Reviews />
       <div>
         <div className="py-8 flex flex-col items-center">
-
-      <p>Explore our services and book your fishing adventure now!</p>
-      <Link to="/booking">Book Now</Link>
+          <p>Explore our services and book your fishing adventure now!</p>
+          <Link to="/booking">Book Now</Link>
+          <p>
+            Create an account to manage your future bookings with Adrenaline
+            Sport Fishing. <Link to="/register">Register</Link>
+          </p>
         </div>
-        <Card>
-        <CardContent>
-          
-        </CardContent>
-
-      </Card>
-
-      <Subscribe />
-      
       </div>
     </div>
-   
-    
-  
   )
 }
 export default Home

@@ -1,35 +1,40 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import  DatePicker  from 'react-datepicker';
+import React, { useState } from 'react'
+import axios from 'axios'
+import {DatePicker} from '@mui/x-date-pickers/DatePicker'
+import {LocalizationProvider} from '@mui/x-date-pickers/LocalizationProvider'
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs'
 
 const BookingForm = () => {
   const initialState = {
     email: '',
     phoneNumber: '',
     tripDate: '',
-    numberOfPeople: '',
-  };
+    numberOfPeople: ''
+  }
 
-  const [formState, setFormState] = useState(initialState);
+  const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const newBooking = await axios.post('http://localhost:3001/bookingPage', formState);
-      console.log(newBooking.data);
-      setFormState(initialState);
+      const newBooking = await axios.post(
+        'http://localhost:3001/bookingPage',
+        formState
+      )
+      console.log(newBooking.data)
+      setFormState(initialState)
     } catch (error) {
-      console.error('Error submitting booking:', error);
+      console.error('Error submitting booking:', error)
     }
-  };
+  }
 
   const handleDateChange = (date) => {
-    setFormState({ ...formState, tripDate: date });
-  };
+    setFormState({ ...formState, tripDate: date })
+  }
 
   const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value });
-  };
+    setFormState({ ...formState, [event.target.id]: event.target.value })
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -50,11 +55,16 @@ const BookingForm = () => {
         required
       />
       <label htmlFor="tripDate">Date of Trip:</label>
+      <LocalizationProvider 
+      dateAdapter={AdapterDayjs}>
       <DatePicker
-        id="tripDate"
-        onChange={handleDateChange}
-        value={formState.tripDate}
+      label="date"
+
       />
+      </LocalizationProvider>
+        
+    
+
       <label htmlFor="numberOfPeople">Number of People:</label>
       <input
         type="number"
@@ -65,7 +75,7 @@ const BookingForm = () => {
       />
       <button type="submit">Book Now!</button>
     </form>
-  );
-};
+  )
+}
 
-export default BookingForm;
+export default BookingForm

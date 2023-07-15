@@ -1,86 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import "./ReviewForm.css"
-import { FormControl } from '@mui/material';
+import './ReviewForm.css'
+import { FormControl } from '@mui/material'
+import axios from 'axios'
 
-const ReviewForm = () => {
-  const [name, setName] = useState('');
-  const [comment, setComment] = useState('');
-  const [image, setImage] = useState(null);
+const ReviewForm = (props) => {
+  const [name, setName] = useState('')
+  const [comment, setComment] = useState('')
 
-  const handleSubmit = (event) => {
- 
-    console.log('Submitting review:', name, comment, image);
-    // Reset form 
-    setName('');
-    setComment('');
-    setImage(null);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
-  };
+    const newReview = await axios.post('http://localhost:3001/reviews/review', {
+      name,
+      comment
+    })
+    console.log('Submitting review:', newReview)
+    props.setReviews(props.reviews.concat([newReview.data]))
+
+    // Reset form
+    setName('')
+    setComment('')
+  }
 
   return (
     <div className="ReviewForm">
       <h2 className="text-2xl font-bold mb-4">How was your trip!</h2>
-      {/* <form onSubmit={handleSubmit}> */}
+      <form onSubmit={handleSubmit}>
         <FormControl>
-
-        
-        
-    
-          {/* <label htmlFor="name" className="block font-bold mb-1">
-            Your Name:
-          </label>
-          <input
-            type="text"
-            id="name"
-            className="border border-gray-300 rounded px-3 py-2 w-full"
-            value={name}
+          <TextField
+            className="FormInput"
+            label="Your Name"
+            required
             onChange={(e) => setName(e.target.value)}
-            required
-          /> */}
-          <TextField className="FormInput" label="Your Name"/>
-     
-         {/* <label htmlFor="comment" className="block font-bold mb-1">
-            Comment: 
-          </label> */}
-          {/* <textarea
-            id="comment"
-            className="border border-gray-300 rounded px-3 py-2 w-full"
-            rows="4"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-            required
-          ></textarea> */}
-          <TextField className="FormInput" label="Comments" multiline rows={6} />
-      
-        <div className="mb-4">
-          <label htmlFor="image" className="block font-bold mb-1">
-            Upload Image:
-          </label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="border border-gray-300 rounded px-3 py-2 w-full"
           />
-        </div>
-        <Button
-          type="submit"
-          variant='contained'
-          className="FormInput"
-        >
-          Submit
-        </Button>
-        </FormControl>
-      {/* </form> */}
-    </div>
-  );
-};
 
-export default ReviewForm;
+          <TextField
+            className="FormInput"
+            label="Comments"
+            multiline
+            rows={6}
+            onChange={(e) => setComment(e.target.value)}
+          />
+
+          <Button type="submit" variant="contained" className="FormInput">
+            Submit
+          </Button>
+        </FormControl>
+      </form>
+    </div>
+  )
+}
+
+export default ReviewForm
