@@ -69,7 +69,8 @@ body{
   background-image: url('/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/Screenshot 2023-07-15 at 12.12.18 AM.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 40rem;
+  min-height: 55rem;
+  background-position: center;
 }
 /*
 @media screen and (min-width: 800px){
@@ -129,4 +130,53 @@ body{
   .services-list {
     gap: 10px; /* Further decrease the gap on even smaller screens */
   }
+}
+/* reviewcard */
+/* Review Card Styles */
+.comment {
+  background-color: #f5f5f5;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  transition: transform 0.3s;
+  position: relative;
+  display: inline-block;
+}
+
+.comment::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -16px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent #f5f5f5 transparent transparent;
+}
+
+.comment::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: -16px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent #f5f5f5;
+}
+
+.comment:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Review Form Styles */
+.ReviewForm {
+  padding: 20px;
+}
+
+.FormInput {
+  padding: 10px;
 }

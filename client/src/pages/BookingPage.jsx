@@ -8,7 +8,8 @@ const BookingPage = () => {
 
   return (
     <div>
-      <h1>Booking Form</h1>
+      <h1>Were thrilled to have you!</h1>
+      <p></p>
      <BookingForm />
     </div>
   );

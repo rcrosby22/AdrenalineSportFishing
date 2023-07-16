@@ -33,6 +33,7 @@ const ReviewForm = (props) => {
             className="FormInput"
             label="Your Name"
             required
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
 
@@ -40,6 +41,7 @@ const ReviewForm = (props) => {
             className="FormInput"
             label="Comments"
             multiline
+            value={comment}
             rows={6}
             onChange={(e) => setComment(e.target.value)}
           />

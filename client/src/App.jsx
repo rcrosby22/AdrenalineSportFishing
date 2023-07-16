@@ -10,6 +10,7 @@ import React, { useState } from 'react';
 import Register  from './pages/Register'
 import SignIn from './pages/SignIn'
 import About from './pages/About'
+import Gallery from './components/Gallery'
 
 
 
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/" element={<Home />} />
+      
       </Routes>
 
       <footer className="footer">
