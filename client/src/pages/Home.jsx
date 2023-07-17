@@ -31,7 +31,7 @@ const Home = () => {
 
       <div>
         <div className="py-8 flex flex-col items-center">
-          <p>Explore our services and book your fishing adventure now!</p>
+          <p>Explore our services and book your fishing adventure now</p>
           <Link to="/booking">Book Now</Link>
         </div>
       </div>
