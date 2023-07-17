@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
-import SignIn from '../pages/SignIn'
-import Grid from '@mui/material/Grid'
+import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
+import FacebookButton from './FacebookButton'
+import FacebookIcon from '@mui/icons-material/Facebook'
 
 const Navbar = () => {
   return (
@@ -12,9 +13,7 @@ const Navbar = () => {
       sx={{ py: 2 }}
     >
       <Grid item>
-        <Link to="/" className="logo-link">
-          Adrenaline Sport Fishing
-        </Link>
+      <FacebookButton />
       </Grid>
       <Grid item>
         <ul className="nav-links" style={{ display: 'flex', gap: '1rem' }}>
@@ -29,7 +28,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-           <Link to="/about" className="nav-link">About</Link>
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
           </li>
           <li>
             <Link to="/register" className="nav-link">
@@ -42,9 +43,10 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
+        
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
