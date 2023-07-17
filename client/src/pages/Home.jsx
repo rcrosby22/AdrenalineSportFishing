@@ -13,6 +13,7 @@ import ReviewForm from '../components/ReviewForm/ReviewForm'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import imageMil from '/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/IMG-20140827-170323.jpg'
+import ContactForm from '../components/ContactForm'
 const Home = () => {
   const photos = [image1, image2, image3]
 
@@ -58,25 +59,62 @@ const Home = () => {
       <Box
         sx={{
           backgroundColor: 'rgba(0, 0, 50, 0.8)', // Set the background color
-          padding: '10rem' // Set the padding
+          padding: '10rem', // Set the padding
+          display: 'flex', // Make the box a flex container
+          alignItems: 'center', // Align the content vertically in the center
+          justifyContent: 'space-between' // Add space between the items
         }}
       >
         <Grid container spacing={3}>
-          <Grid item xs={6} sx={{ display: 'flex', alignItems: 'left' }}>
+          <Grid
+            item
+            xs={6}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              paddingRight: '2rem'
+            }}
+          >
+            {/* Content of the left section */}
             <img
               src={imageMil}
               alt="Adrenaline Sport Fishing"
               style={{
                 width: '100%',
-                height: '100%',
+                height: 'auto',
                 objectFit: 'cover',
-                marginLeft: '0'
+                borderRadius: '10px',
+                marginLeft: '-2rem' // Adjust the margin to create space
               }}
             />
-            {/* Content of the first section */}
           </Grid>
-          <Grid item xs={6}>
-            {/* Content of the second section */}
+          <Grid
+            item
+            xs={6}
+            sx={{
+              backgroundColor: '#f0f0f0',
+              padding: '2rem',
+              borderRadius: '10px'
+            }}
+          >
+            <h1>SALUTE THE TROOPS DISCOUNT</h1>
+            <p>
+              Adrenaline Sport Fishing prides ourselves on the men and women who
+              have served for this country - please let us know if you served to
+              provide an additional 10% off
+            </p>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <ContactForm style={{ width: '100%', height: '100%' }} />{' '}
+              {/* Adjust the width of the form */}
+            </div>
           </Grid>
         </Grid>
       </Box>
