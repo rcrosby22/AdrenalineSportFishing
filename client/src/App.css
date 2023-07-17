@@ -222,3 +222,17 @@ body{
   align-self: flex-end;
 }
 
+/* why us section */
+.Why {
+  background-color: lightgrey;
+  padding: 10rem;
+  border-bottom: 1px solid gray;
+}
+.mil {
+  background-color: rgb(152, 152, 224);
+  padding: 5rem;
+  width: 50%;
+  margin-left: 25%;
+  border-bottom: 1px solid lightblue;
+  
+}
