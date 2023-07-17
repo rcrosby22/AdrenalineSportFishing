@@ -192,3 +192,33 @@ body{
 .FormInput {
   padding: 10px;
 }
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.signin-form h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.signin-form input {
+  width: 100%;
+}
+
+.signin-form button {
+  margin-top: 1rem;
+  align-self: flex-end;
+}
+

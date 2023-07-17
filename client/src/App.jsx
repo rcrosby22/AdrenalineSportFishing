@@ -11,6 +11,8 @@ import Register  from './pages/Register'
 import SignIn from './pages/SignIn'
 import About from './pages/About'
 import Gallery from './components/Gallery'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -19,6 +21,7 @@ import Gallery from './components/Gallery'
 
 const App = () => {
   const [user, setUser] = useState(null);
+  let navigate = useNavigate();
   
   const handleRegistration = async (userData) => {
     try {
@@ -39,6 +42,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
+      <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/about" element={<About/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/register" element={<SignIn/>} />
