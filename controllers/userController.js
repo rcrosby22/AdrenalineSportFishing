@@ -4,12 +4,13 @@ const { verifyToken } = require('../middleware/index')
 const updateUser = async (req, res) => {
   try {
     const { email, phoneNumber } = req.body;
+    console.log(email, phoneNumber)
     const user = await User.findOneAndUpdate(
       { _id: req.user.id }, // Assuming you have authentication middleware to set req.user.id
       { email, phoneNumber },
       { new: true }
     );
-
+console.log(user.phoneNumber)
     if (!user) {
       throw Error('User not found');
     }
@@ -20,7 +21,12 @@ const updateUser = async (req, res) => {
     res.status(500).json({ error: 'An error occurred while updating the user' });
   }
 };
+const getUser = async (req, res) => {
+const user = await User.findById(req.user._id)
+return res.json(user.toJSON())
+}
 
 module.exports = {
   updateUser,
+  getUser
 };
