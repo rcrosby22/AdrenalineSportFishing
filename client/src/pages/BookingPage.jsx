@@ -6,7 +6,8 @@ import {
   TableBody,
   TableRow,
   TableHead,
-  Table
+  Table,
+  Button
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -30,17 +31,22 @@ const BookingPage = () => {
     return { name, calories, fat, carbs, protein }
   }
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    const date = new Date(dateString)
     const formattedDate = date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric',
-    });
-    return formattedDate;
-  };
-  const rows = [
-    createData(bookings[0], 159, 6.0, 24, 4.0),
-  ]
+      day: 'numeric'
+    })
+    return formattedDate
+  }
+  const rows = [createData(bookings[0], 159, 6.0, 24, 4.0)]
+  const handleUpdateBooking = (id) => {
+    // Implement your logic for updating the booking with the provided ID
+  }
+
+  const handleDeleteBooking = (id) => {
+    // Implement your logic for deleting the booking with the provided ID
+  }
   return (
     <div>
       <h1>Were thrilled to have you!</h1>
@@ -65,6 +71,23 @@ const BookingPage = () => {
                 </TableCell>
                 <TableCell align="right">{booking.email}</TableCell>
                 <TableCell align="right">{formatDate(booking.date)}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => handleUpdateBooking(booking._id)}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDeleteBooking(booking._id)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+
               </TableRow>
             ))}
           </TableBody>
