@@ -11,7 +11,6 @@ import {
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-
 const BookingPage = () => {
   const [bookings, setBookings] = useState([])
   useEffect(() => {
@@ -19,7 +18,7 @@ const BookingPage = () => {
     console.log(bookings)
   }, [])
   const getBookings = async () => {
-    const token = sessionStorage.getItem("accessToken")
+    const token = sessionStorage.getItem('accessToken')
     const bookings = await axios.get('http://localhost:3001/bookings/', {
       headers: { Authorization: `Bearer ${token}` }
     })
@@ -30,13 +29,17 @@ const BookingPage = () => {
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein }
   }
-
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+    return formattedDate;
+  };
   const rows = [
     createData(bookings[0], 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9)
   ]
   return (
     <div>
@@ -49,7 +52,6 @@ const BookingPage = () => {
               <TableCell>Guests</TableCell>
               <TableCell align="right">Email</TableCell>
               <TableCell align="right">Date</TableCell>
-              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -62,9 +64,7 @@ const BookingPage = () => {
                   {booking.numberOfPeople}
                 </TableCell>
                 <TableCell align="right">{booking.email}</TableCell>
-                <TableCell align="right">{booking.date}</TableCell>
-                {/* <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell> */}
+                <TableCell align="right">{formatDate(booking.date)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
