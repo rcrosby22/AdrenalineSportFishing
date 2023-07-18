@@ -3,7 +3,7 @@ import axios from 'axios'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { FormControl } from '@mui/material'
+import { FormControl, TextField } from '@mui/material'
 import Button from '@mui/material/Button'
 
 const BookingForm = () => {
@@ -14,15 +14,19 @@ const BookingForm = () => {
     numberOfPeople: ''
   }
 
-  const [formState, setFormState] = useState(initialState)
+  const [email, setEmail] = useState()
+  const [phoneNumber, setPhoneNumber] = useState()
+  const [date, setDate] = useState()
+  const [numberOfPeople, setNumberOfPeople] = useState()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       const newBooking = await axios.post(
-        'http://localhost:3001/bookingPage',
-        formState
+        'http://localhost:3001/bookings',
+        {}
       )
+      console.log(formState)
       console.log(newBooking.data)
       setFormState(initialState)
     } catch (error) {
@@ -42,34 +46,34 @@ const BookingForm = () => {
     <div className="BookingForm">
       <form onSubmit={handleSubmit}>
         <FormControl>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            onChange={handleChange}
-            value={formState.email}
+          <TextField
+            className="FormInput"
+            label="Email"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            onChange={handleChange}
-            value={formState.phoneNumber}
+          <TextField
+            className="FormInput"
+            label="Phone Number"
             required
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
           />
           <label htmlFor="tripDate">Date of Trip:</label>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker label="date" />
+            <DatePicker
+              label="date"
+              onChange={(e) => setDate(e.target.value)}
+            />
           </LocalizationProvider>
 
-          <label htmlFor="numberOfPeople">Number of People:</label>
-          <input
-            type="number"
-            id="numberOfPeople"
-            onChange={handleChange}
-            value={formState.numberOfPeople}
+          <TextField
+            className="FormInput"
+            label="Number of People"
             required
+            value={numberOfPeople}
+            onChange={(e) => setNumberOfPeople(e.target.value)}
           />
           <Button type="submit" variant="contained" className="FormInput">
             Submit
