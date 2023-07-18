@@ -1,19 +1,19 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 const {
   createBooking,
-  getAllBookings,
   getBookingById,
-  updateBooking,
-  deleteBooking,
-} = require( '../controllers/bookingController');
+  updateUserBooking,
+  deleteUserBooking,
+  getUserBookings
+} = require('../controllers/bookingController')
+const {verifyToken, stripToken} = require('../middleware/index')
 
 
+router.post('/', stripToken,verifyToken,createBooking)
+router.get('/',stripToken, verifyToken, getUserBookings)
+router.get('/:id', stripToken,verifyToken,getBookingById)
+router.put('/:id', stripToken,verifyToken,updateUserBooking)
+router.delete('/user/:id', stripToken, verifyToken,deleteUserBooking)
 
-router.post('/', createBooking);
-router.get('/', getAllBookings);
-router.get('/:id', getBookingById);
-router.put('/:id', updateBooking);
-router.delete('/:id', deleteBooking);
-
-module.exports=router
+module.exports = router

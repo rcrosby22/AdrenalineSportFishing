@@ -1,10 +1,11 @@
-const { User } = require('../models/User')
+const  User  = require('../models/User')
 const middleware = require('../middleware')
 
 const Register = async (req, res) => {
   try {
     // Extracts the necessary fields from the request body
     const { email, password, name } = req.body
+    console.log(req.body)
     // Hashes the provided password
     let passwordDigest = await middleware.hashPassword(password)
     // Checks if there has already been a user registered with that email
@@ -30,6 +31,7 @@ const Login = async (req, res) => {
     const { email, password } = req.body
     // Finds a user by a particular field (in this case, email)
     const user = await User.findOne({ email })
+    console.log(user)
     // Checks if the password matches the stored digest
     let matched = await middleware.comparePassword(
       user.passwordDigest,

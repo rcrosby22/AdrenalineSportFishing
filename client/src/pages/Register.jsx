@@ -22,6 +22,7 @@ const Register = ({ setUser }) => {
 console.log(response)
         if (response.ok) {
           const data = await response.json();
+          sessionStorage.setItem('accessToken', data.token)
           // setUser(data.user);
           navigate('/');
         } else {

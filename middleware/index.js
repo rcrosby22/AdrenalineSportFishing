@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
+const User = require('../models/User')
 
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS)
 const APP_SECRET = process.env.APP_SECRET
@@ -45,7 +46,7 @@ const stripToken = (req, res, next) => {
   }
 }
 
-const verifyToken = (req, res, next) => {
+const verifyToken = async (req, res, next) => {
   const { token } = res.locals
   // Gets the token stored in the request lifecycle state
   try {
@@ -54,6 +55,7 @@ const verifyToken = (req, res, next) => {
     if (payload) {
       res.locals.payload = payload // Passes the decoded payload to the next function
       // Calls the next function if the token is valid
+      req.user = await User.findById(payload.id)
       return next()
     }
     res.status(401).send({ status: 'Error', msg: 'Unauthorized' })

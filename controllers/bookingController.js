@@ -1,92 +1,121 @@
-const Booking = require( '../models/Booking');
+import React from 'react'
+import BookingForm from '../components/BookingForm'
+import {
+  TableContainer,
+  TableCell,
+  TableBody,
+  TableRow,
+  TableHead,
+  Table,
+  Button
+} from '@mui/material'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
-const createBooking = async (req, res) => {
-  try {
-    const { date, details } = req.body;
-    const booking = new Booking({ date, details });
-    await booking.save();
-    res.status(201).json({ message: 'Booking created successfully!', booking });
-  } catch (error) {
-    throw error
-  }
-};
-// get all bookings
-const getAllBookings = async (req, res) => {
-  try {
-    const bookings = await Booking.find({});
-    res.json(bookings);
-  } catch (error) {
-   throw error
-  }
-};
-
-// Get a single booking by ID
-const getBookingById = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const booking = await Booking.findById(id);
-
-    if (!booking) {
-      return res.status(404).json({ error: 'Booking not found.' });
-    }
-
-    res.json(booking);
-  } catch (error) {
-    throw error
-  }
-};
-
-// update a booking
-const updateBooking = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { date, details } = req.body;
-
-    const booking = await Booking.findByIdAndUpdate(id, { date, details }, { new: true });
-
-    if (!booking) {
-      return res.status(404).json({ error: 'Booking not found.' });
-    }
-    await booking.save()
-
-    res.json(booking);
-  } catch (error) {
-    throw error
-  }
-};
-
-// delete a booking
-const deleteBooking = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const booking = await Booking.findByIdAndDelete(id);
-
-    if (!booking) {
-      return res.status(404).json({ error: 'Booking not found.' });
-    }
-    const today = new Date()
-    const bookingDate = booking.date
-    const timeDifference = bookingDate.getTime() - today.getTime();
-    const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
-    
-    if (req.user.role === 'owner' || (req.user.role === 'user' && daysDifference <= 30)) {
-      await Booking.findByIdAndDelete(id);
-      res.json({ message: 'Booking deleted successfully!' });
-      await booking.save()
-    } else {
-      res.status(403).json({ error: 'Unauthorized access' });
-    }
-  } catch (error) {
-    throw error
-  }
-};
-
-
-module.exports = {
-  createBooking,
-  getAllBookings,
-  getBookingById,
-  updateBooking,
-  deleteBooking
+const BookingPage = () => {
+  const [bookings, setBookings] = useState([])
   
+  useEffect(() => {
+    getBookings()
+  }, [])
+  
+  const getBookings = async () => {
+    try {
+      const token = sessionStorage.getItem('accessToken')
+      const response = await axios.get('http://localhost:3001/bookings/', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      setBookings(response.data)
+    } catch (error) {
+      console.error(error)
+      // Handle any error that occurred during the retrieval process
+    }
+  }
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString)
+    const formattedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+    return formattedDate
+  }
+  
+  const handleUpdateBooking = (id) => {
+    // Retrieve the booking data that needs to be updated
+    const bookingToUpdate = bookings.find((booking) => booking._id === id)
+    
+    // Implement your logic for updating the booking, such as opening a modal or redirecting to a form with the pre-filled data
+    // You can use the bookingToUpdate object to access the specific booking details
+    console.log(`Update booking with ID: ${id}`)
+  }
+
+  const handleDeleteBooking = async (id) => {
+    try {
+      // Send a DELETE request to your backend API to delete the booking with the provided ID
+      const token = sessionStorage.getItem('accessToken')
+      await axios.delete(`http://localhost:3001/bookings/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+
+      // Update the bookings state by removing the deleted booking
+      setBookings((prevBookings) => prevBookings.filter((booking) => booking._id !== id))
+      console.log(`Deleted booking with ID: ${id}`)
+    } catch (error) {
+      console.error(error)
+      // Handle any error that occurred during the deletion process
+    }
+  }
+
+  return (
+    <div>
+      <h1>We're thrilled to have you!</h1>
+      <BookingForm />
+      <TableContainer>
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Guests</TableCell>
+              <TableCell align="right">Email</TableCell>
+              <TableCell align="right">Date</TableCell>
+              <TableCell align="right">Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {bookings.map((booking) => (
+              <TableRow
+                key={booking._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {booking.numberOfPeople}
+                </TableCell>
+                <TableCell align="right">{booking.email}</TableCell>
+                <TableCell align="right">{formatDate(booking.date)}</TableCell>
+                <TableCell align="right">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => handleUpdateBooking(booking._id)}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => handleDeleteBooking(booking._id)}
+                  >
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
+  )
 }
+
+export default BookingPage
