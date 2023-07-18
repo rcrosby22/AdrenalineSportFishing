@@ -23,6 +23,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to= "/user" className="nav-link">Update Account</Link>
+          </li>
+          <li>
             <Link to="/" className="nav-link">
               Home
             </Link>
