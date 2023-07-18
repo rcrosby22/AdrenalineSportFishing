@@ -40,17 +40,23 @@ const BookingPage = () => {
     return formattedDate
   }
   const rows = [createData(bookings[0], 159, 6.0, 24, 4.0)]
-  const handleUpdateBooking = (id) => {
-    // Implement your logic for updating the booking with the provided ID
+  
+
+  const handleDeleteBooking = async (id) => {
+    const token = sessionStorage.getItem('accessToken')
+    await axios.delete('http://localhost:3001/bookings/' + id, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    const newBookings = bookings.filter((booking) => {
+      return booking._id !== id
+    })
+    setBookings(newBookings)
   }
 
-  // const handleDeleteBooking = (id) => {
-  //   // Implement your logic for deleting the booking with the provided ID
-  // }
   return (
     <div>
       <h1>Were thrilled to have you!</h1>
-      <BookingForm />
+      <BookingForm bookings={bookings} setBookings={setBookings} />
       <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -87,7 +93,6 @@ const BookingPage = () => {
                     Delete
                   </Button>
                 </TableCell>
-
               </TableRow>
             ))}
           </TableBody>

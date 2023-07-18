@@ -5,8 +5,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { FormControl, TextField } from '@mui/material'
 import Button from '@mui/material/Button'
+import dayjs from 'dayjs'
 
-const BookingForm = () => {
+const BookingForm = (bookings, setBookings) => {
   const initialState = {
     email: '',
     phoneNumber: '',
@@ -14,21 +15,34 @@ const BookingForm = () => {
     numberOfPeople: ''
   }
 
-  const [email, setEmail] = useState()
-  const [phoneNumber, setPhoneNumber] = useState()
-  const [date, setDate] = useState()
-  const [numberOfPeople, setNumberOfPeople] = useState()
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [date, setDate] = useState(dayjs('2023-07-18'))
+  const [numberOfPeople, setNumberOfPeople] = useState('')
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
+      const token = sessionStorage.getItem('accessToken')
       const newBooking = await axios.post(
         'http://localhost:3001/bookings',
-        {}
+        {
+          email,
+          phone,
+          date,
+          numberOfPeople
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
       )
-      console.log(formState)
+      console.log(newBooking)
+      console.log(bookings)
+      console.log([...bookings.bookings, newBooking.data])
+      bookings.setBookings([
+        ...bookings.bookings,
+        newBooking.data.booking
+      ])
+
       console.log(newBooking.data)
-      setFormState(initialState)
     } catch (error) {
       console.error('Error submitting booking:', error)
     }
@@ -57,14 +71,16 @@ const BookingForm = () => {
             className="FormInput"
             label="Phone Number"
             required
-            value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <label htmlFor="tripDate">Date of Trip:</label>
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DatePicker
               label="date"
-              onChange={(e) => setDate(e.target.value)}
+              value={date}
+              required
+              onChange={(e) => setDate(e)}
             />
           </LocalizationProvider>
 
