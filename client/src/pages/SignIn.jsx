@@ -1,6 +1,8 @@
+// SignIn component
 import React, { useState } from 'react';
 import { Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 
 const SignIn = ({ setUser }) => {
   const navigate = useNavigate();
@@ -13,10 +15,25 @@ const SignIn = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = await SignInUser(formValues);
-    setFormValues({ email: '', password: '' });
-    setUser(payload);
-    navigate('/');
+    try {
+      // Make an API request to authenticate the user
+      const response = await fetch('http://localhost:3001/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formValues),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data.user);
+        sessionStorage.setItem('accessToken', data.token)
+        navigate('/');
+      } else {
+        console.error('Sign-in failed');
+      }
+    } catch (error) {
+      console.error('Error during sign-in:', error);
+    }
   };
 
   return (
