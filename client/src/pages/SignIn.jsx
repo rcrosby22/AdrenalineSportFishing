@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, TextField, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ const SignIn = ({ setUser }) => {
         const data = await response.json();
         setUser(data.user);
         sessionStorage.setItem('accessToken', data.token);
-        setIsUpdateMode(true);
+        setIsUpdateMode(false);
       } else {
         console.error('Sign-in failed');
       }
@@ -64,12 +64,36 @@ const SignIn = ({ setUser }) => {
     }
   };
 
+  useEffect(() => {
+    const token = sessionStorage.getItem('accessToken');
+    if (token) {
+      try {
+        const response = await fetch('http://localhost:3001/auth/verify', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setUser(data.user);
+          setIsUpdateMode(true);
+        } else {
+          console.error('Token verification failed');
+        }
+      } catch (error) {
+        console.error('Error during token verification:', error);
+      }
+    }
+  }, []);
+
   return (
     <div className="signin-container">
       {isUpdateMode ? (
         <form className="update-form" onSubmit={handleUpdateSubmit}>
           <TextField
-          
             label="Email"
             name="email"
             type="email"

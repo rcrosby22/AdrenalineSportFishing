@@ -7,6 +7,7 @@ const authRouter = require('./routes/authRouter')
 const bookingRouter = require('./routes/bookingRouter');
 const reviewRouter = require('./routes/reviewRouter');
 const serviceRouter = require('./routes/serviceRouter');
+const userRouter = require('./routes/userRouter');
 
 
 
@@ -30,6 +31,7 @@ app.use('/auth', authRouter)
 app.use('/bookings', bookingRouter);
 app.use('/reviews', reviewRouter);
 app.use('/services', serviceRouter);
+app.use('/user', userRouter)
 
 
 app.use('/', (req, res) => {

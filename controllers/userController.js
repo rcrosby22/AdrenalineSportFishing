@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const { verifyToken } = require('../middleware/index')
 
 const updateUser = async (req, res) => {
   try {
