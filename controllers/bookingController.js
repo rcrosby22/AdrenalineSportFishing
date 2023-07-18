@@ -2,12 +2,12 @@ const Booking = require('../models/Booking')
 
 const createBooking = async (req, res) => {
   try {
-    const { date, details, numberOfPeople } = req.body
+    const { date, phone, numberOfPeople } = req.body
     const user = req.user
     console.log(user.email)
     const booking = new Booking({
       date,
-      details,
+      phone,
       numberOfPeople,
       email: user.email
     })
@@ -65,18 +65,7 @@ const deleteUserBooking = async (req, res) => {
     const user = req.user
     const { id } = req.params
 
-    const bookingIndex = user.bookings.findIndex(
-      (booking) => booking._id.toString() === id
-    )
-
-    if (bookingIndex === -1) {
-      return res.status(404).json({ error: 'Booking not found.' })
-    }
-
-    user.bookings.splice(bookingIndex, 1) // Remove the booking from the user's bookings array
-    await user.save()
-
-    await Booking.findByIdAndDelete(id)
+    await Booking.deleteOne({_id:id})
 
     res.json({ message: 'Booking deleted successfully!' })
   } catch (error) {

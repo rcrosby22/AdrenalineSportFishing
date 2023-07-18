@@ -14,6 +14,6 @@ router.post('/', stripToken,verifyToken,createBooking)
 router.get('/',stripToken, verifyToken, getUserBookings)
 router.get('/:id', stripToken,verifyToken,getBookingById)
 router.put('/:id', stripToken,verifyToken,updateUserBooking)
-router.delete('/user/:id', stripToken, verifyToken,deleteUserBooking)
+router.delete('/:id', stripToken, verifyToken,deleteUserBooking)
 
 module.exports = router
