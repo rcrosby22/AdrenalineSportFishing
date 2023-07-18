@@ -44,9 +44,9 @@ const BookingPage = () => {
     // Implement your logic for updating the booking with the provided ID
   }
 
-  const handleDeleteBooking = (id) => {
-    // Implement your logic for deleting the booking with the provided ID
-  }
+  // const handleDeleteBooking = (id) => {
+  //   // Implement your logic for deleting the booking with the provided ID
+  // }
   return (
     <div>
       <h1>Were thrilled to have you!</h1>
