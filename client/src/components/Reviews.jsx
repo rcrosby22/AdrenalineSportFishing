@@ -36,19 +36,11 @@ const Reviews = ({ initialReviews, currentUser }) => {
     }
   }
 
-  const handleUpdate = async (id, updatedReview) => {
-    try {
-      await axios.put(`http://localhost:3001/review/${id}`, updatedReview)
-      // Refresh the reviews list after updating
-      fetchReviews()
-    } catch (error) {
-      console.error('Error updating review:', error)
-    }
-  }
+
 
   return (
     <div className="reviews">
-      <h2>Your feedback is appreciated!</h2>
+ 
 
       {reviews.map((review) => (
         <Box key={review._id} sx={{width:300, padding:"20px",display: "inline-block",minHeight:"500px"}}>
@@ -67,25 +59,7 @@ const Reviews = ({ initialReviews, currentUser }) => {
         </Card>
         </Box>
            
-        //   <div key={review._id}>
-        //     <h3>{review.name}</h3>
-        //     <p>{review.comment}</p>
-        //     {review.user === currentUser && (
-        //       <div>
-        //         <button onClick={() => handleDelete(review._id)}>Delete</button>
-        //         <button
-        //           onClick={() =>
-        //             handleUpdate(review._id, {
-        //               name: 'Updated Name',
-        //               comment: 'Updated Comment'
-        //             })
-        //           }
-        //         >
-        //           Update
-        //         </button>
-        //       </div>
-        //     )}
-        //  </div>
+        
       ))}
       <ReviewForm reviews={reviews}
       setReviews={setReviews}/>

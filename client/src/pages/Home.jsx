@@ -40,7 +40,7 @@ const Home = () => {
      
       <Box
         sx={{
-          backgroundColor: '', // Set the background color
+          backgroundColor: '#1976d2', // Set the background color
           padding: '10rem', // Set the padding
           display: 'flex', // Make the box a flex container
           alignItems: 'center', // Align the content vertically in the center
@@ -52,6 +52,7 @@ const Home = () => {
             item
             xs={6}
             sx={{
+              background:'#1976d2',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
@@ -80,7 +81,7 @@ const Home = () => {
               borderRadius: '10px'
             }}
           >
-            <h1>SALUTE THE TROOPS DISCOUNT</h1>
+            <h1 style={{color: '#1976d2'}}>SALUTE THE TROOPS DISCOUNT</h1>
             <p>
               Adrenaline Sport Fishing prides ourselves on the men and women who
               have served for this country - please let us know if you served to

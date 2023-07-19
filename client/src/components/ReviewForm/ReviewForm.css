@@ -1,7 +1,13 @@
 .ReviewForm {
   padding: 20px;
-  .FormInput {
-    padding: 10px;
-  }
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }
+
+.ReviewForm .FormInput {
+  padding: 10px;
+}
+
