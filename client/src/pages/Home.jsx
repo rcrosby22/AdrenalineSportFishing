@@ -40,7 +40,7 @@ const Home = () => {
      
       <Box
         sx={{
-          backgroundColor: 'rgba(0, 0, 50, 0.8)', // Set the background color
+          backgroundColor: '', // Set the background color
           padding: '10rem', // Set the padding
           display: 'flex', // Make the box a flex container
           alignItems: 'center', // Align the content vertically in the center
@@ -88,6 +88,7 @@ const Home = () => {
             </p>
             <div
               style={{
+                color: '#1976d2',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
