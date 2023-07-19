@@ -15,7 +15,7 @@ const About = () => {
         </div>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h2" gutterBottom style={{color:'#1976d2'}}>
           About Us
         </Typography>
         <Typography variant="body1" gutterBottom>
