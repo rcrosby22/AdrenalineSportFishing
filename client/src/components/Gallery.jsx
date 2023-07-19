@@ -36,7 +36,7 @@ const Gallery = ({ photos }) => {
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item>
-        <Typography variant="h3" align="center" gutterBottom>
+        <Typography variant="h3" align="center" gutterBottomstyle style={{color:'#1976d2'}}>
           Our Past Adventures!
         </Typography>
         <Paper elevation={3}>
