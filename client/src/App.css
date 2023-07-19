@@ -70,15 +70,23 @@ body {
 /* Footer Styles */
 .footer {
   background-color: #f8f8f8;
-  padding: 10px 0;
+  padding: 3px 0;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .footer-content {
-  background-color: white;
-  padding: 10px;
-  border-radius: 10px;
+  background-color: rgb(11, 11, 108);
+  padding: 3px;
+  border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
+}
+ .footer-copyright {
+  font-size: 8px;
 }
 
 /* Hero Section Styles */
