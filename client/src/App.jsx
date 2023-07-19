@@ -13,6 +13,7 @@ import Gallery from './components/Gallery'
 import { useNavigate } from 'react-router-dom'
 import UpdateUser from './pages/UpdateUser'
 
+
 const App = () => {
   const [user, setUser] = useState(null)
   let navigate = useNavigate()
@@ -34,6 +35,7 @@ const App = () => {
       <Navbar />
 
       <Routes>
+      
         <Route path="/user" element={<UpdateUser />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/about" element={<About />} />
@@ -44,9 +46,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
       </Routes>
 
-      <footer className="footer">
-        <Footer />
-      </footer>
+     
     </div>
   )
 }

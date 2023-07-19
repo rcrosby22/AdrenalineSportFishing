@@ -14,6 +14,7 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import imageMil from '/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/IMG-20140827-170323.jpg'
 import ContactForm from '../components/ContactForm'
+import ServiceDetails from '../components/ServiceDetails'
 const Home = () => {
   const photos = [image1, image2, image3]
 
@@ -33,29 +34,10 @@ const Home = () => {
       <br />
 
       <Gallery photos={photos} />
-      <Box
-        sx={{
-          backgroundColor: '#f0f0f0', // Set the background color
-          padding: '15rem' // Set the padding
-        }}
-      >
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
-            <Box
-              sx={{
-                backgroundColor: 'creme',
-                padding: '1rem'
-              }}
-            ></Box>
-            {/* Content of the first section */}
-          </Grid>
-          <Grid item xs={6}>
-            {/* Content of the second section */}
-          </Grid>
-        </Grid>
-      </Box>
+      <ServiceDetails/>
+      
 
-      {/* Military section */}
+     
       <Box
         sx={{
           backgroundColor: 'rgba(0, 0, 50, 0.8)', // Set the background color
