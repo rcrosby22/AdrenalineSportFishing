@@ -11,13 +11,16 @@ const UpdateUser = () => {
     e.preventDefault()
     try {
       const token = sessionStorage.getItem('accessToken')
-      const response = await axios.put('http://localhost:3001/user/update',      {phoneNumber, email}, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-   
-      })
+      const response = await axios.put(
+        'http://localhost:3001/user/update',
+        { phoneNumber, email },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
     } catch (error) {
       console.error('Error during user update:', error)
     }
@@ -39,10 +42,7 @@ const UpdateUser = () => {
           setEmail(response.data.email)
           setPhoneNumber(response.data.phoneNumber ?? '')
 
-          // const data = await response.json()
           console.log(response)
-          // setUser(data.user)
-          // setIsUpdateMode(true)
         } catch (error) {
           console.error('Error during token verification:', error)
         }

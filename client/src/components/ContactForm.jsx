@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react'
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 const ContactForm = () => {
-  const [title, setTitle] = useState('');
-  const [message, setMessage] = useState('');
+  const [title, setTitle] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform form submission logic here
-    console.log('Submitting contact form:', { title, message });
-    // Reset form
-    setTitle('');
-    setMessage('');
-  };
+    e.preventDefault()
+
+    console.log('Submitting contact form:', { title, message })
+
+    setTitle('')
+    setMessage('')
+  }
 
   return (
     <div>
@@ -42,7 +42,7 @@ const ContactForm = () => {
         </Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

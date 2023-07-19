@@ -19,14 +19,15 @@ const ReviewForm = (props) => {
     console.log('Submitting review:', newReview)
     props.setReviews(props.reviews.concat([newReview.data]))
 
-    // reset form
     setName('')
     setComment('')
   }
 
   return (
     <div className="ReviewForm">
-      <h2 className="text-2xl font-bold mb-4" style={{color:'#1976d2'}}>We would love to hear about your trip</h2>
+      <h2 className="text-2xl font-bold mb-4" style={{ color: '#1976d2' }}>
+        We would love to hear about your trip
+      </h2>
       <form onSubmit={handleSubmit}>
         <FormControl>
           <TextField

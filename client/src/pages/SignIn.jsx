@@ -46,40 +46,38 @@ const SignIn = ({ setUser }) => {
     }
   }
 
-
   return (
-  <div>
-        <form className="signin-form" onSubmit={handleSubmit}>
-          <Typography variant="h5" component="h1">
-            Sign In
-          </Typography>
-          <TextField
-            label="Email"
-            name="email"
-            type="email"
-            placeholder="example@example.com"
-            value={formValues.email}
-            onChange={handleChange}
-            required
-          />
-          <TextField
-            label="Password"
-            name="password"
-            type="password"
-            value={formValues.password}
-            onChange={handleChange}
-            required
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            disabled={!formValues.email || !formValues.password}
-          >
-            Sign In
-          </Button>
-        </form>
-      
+    <div>
+      <form className="signin-form" onSubmit={handleSubmit}>
+        <Typography variant="h5" component="h1">
+          Sign In
+        </Typography>
+        <TextField
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="example@example.com"
+          value={formValues.email}
+          onChange={handleChange}
+          required
+        />
+        <TextField
+          label="Password"
+          name="password"
+          type="password"
+          value={formValues.password}
+          onChange={handleChange}
+          required
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          type="submit"
+          disabled={!formValues.email || !formValues.password}
+        >
+          Sign In
+        </Button>
+      </form>
     </div>
   )
 }

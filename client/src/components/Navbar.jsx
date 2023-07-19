@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Grid } from '@mui/material';
-import FacebookButton from './FacebookButton';
-import FacebookIcon from '@mui/icons-material/Facebook';
+import { Link } from 'react-router-dom'
+import { AppBar, Toolbar, Button, Grid } from '@mui/material'
+import FacebookButton from './FacebookButton'
+import FacebookIcon from '@mui/icons-material/Facebook'
 
 const Navbar = () => {
   return (
@@ -36,7 +36,7 @@ const Navbar = () => {
         </Grid>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

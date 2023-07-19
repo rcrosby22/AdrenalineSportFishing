@@ -1,10 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
+
 import About from './About'
 import Services from '../components/Services'
-import Reviews from '../components/Reviews'
-import { Card, CardContent } from '@mui/material'
+
 import Gallery from '../components/Gallery'
 import image1 from '../assets/images/Adrenaline_sport_fishing/FB_IMG_1689166114728.jpg'
 import image2 from '../assets/images/Adrenaline_sport_fishing/FB_IMG_1689166211289.jpg'
@@ -34,17 +32,15 @@ const Home = () => {
       <br />
 
       <Gallery photos={photos} />
-      <ServiceDetails/>
-      
+      <ServiceDetails />
 
-     
       <Box
         sx={{
-          backgroundColor: '#1976d2', // Set the background color
-          padding: '10rem', // Set the padding
-          display: 'flex', // Make the box a flex container
-          alignItems: 'center', // Align the content vertically in the center
-          justifyContent: 'space-between' // Add space between the items
+          backgroundColor: '#1976d2',
+          padding: '10rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between'
         }}
       >
         <Grid container spacing={3}>
@@ -52,14 +48,13 @@ const Home = () => {
             item
             xs={6}
             sx={{
-              background:'#1976d2',
+              background: '#1976d2',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
               paddingRight: '2rem'
             }}
           >
-            {/* Content of the left section */}
             <img
               src={imageMil}
               alt="Adrenaline Sport Fishing"
@@ -68,7 +63,7 @@ const Home = () => {
                 height: 'auto',
                 objectFit: 'cover',
                 borderRadius: '10px',
-                marginLeft: '-2rem' // Adjust the margin to create space
+                marginLeft: '-2rem'
               }}
             />
           </Grid>
@@ -81,7 +76,7 @@ const Home = () => {
               borderRadius: '10px'
             }}
           >
-            <h1 style={{color: '#1976d2'}}>SALUTE THE TROOPS DISCOUNT</h1>
+            <h1 style={{ color: '#1976d2' }}>SALUTE THE TROOPS DISCOUNT</h1>
             <p>
               Adrenaline Sport Fishing prides ourselves on the men and women who
               have served for this country - please let us know if you served to
@@ -97,7 +92,6 @@ const Home = () => {
               }}
             >
               <ContactForm style={{ width: '100%', height: '100%' }} />{' '}
-              {/* Adjust the width of the form */}
             </div>
           </Grid>
         </Grid>
@@ -105,11 +99,7 @@ const Home = () => {
 
       <ReviewForm />
 
-      <div>
-       
-      </div>
-
-     
+      <div></div>
     </div>
   )
 }

@@ -1,40 +1,39 @@
-
-import React, { useState } from 'react';
-import { Button, TextField } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Button, TextField } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 const Register = ({ setUser }) => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [verifyPassword, setVerifyPassword] = useState('');
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [verifyPassword, setVerifyPassword] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (password === verifyPassword) {
       try {
         const response = await fetch('http://localhost:3001/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password }),
-        });
-console.log(response)
+          body: JSON.stringify({ name, email, password })
+        })
+        console.log(response)
         if (response.ok) {
-          const data = await response.json();
+          const data = await response.json()
           sessionStorage.setItem('accessToken', data.token)
-          // setUser(data.user);
-          navigate('/');
+
+          navigate('/')
         } else {
-          console.error('Registration failed');
+          console.error('Registration failed')
         }
       } catch (error) {
-        console.error('Error during registration:', error);
+        console.error('Error during registration:', error)
       }
     } else {
-      console.error('Password verification failed');
+      console.error('Password verification failed')
     }
-  };
+  }
 
   return (
     <div className="signin col">
@@ -74,7 +73,7 @@ console.log(response)
         </Button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

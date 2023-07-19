@@ -39,18 +39,16 @@ const updateUserBooking = async (req, res) => {
     const { id } = req.params
     const { date, details, numberOfPeople } = req.body
 
-    // Find the booking by ID
     const booking = await Booking.findById(id)
 
     if (!booking) {
       return res.status(404).json({ error: 'Booking not found.' })
     }
-    // Update the booking fields
+
     booking.date = date
     booking.details = details
     booking.numberOfPeople = numberOfPeople
 
-    // Save the updated booking
     await booking.save()
 
     res.json({ message: 'Booking updated successfully!', booking })
@@ -65,7 +63,7 @@ const deleteUserBooking = async (req, res) => {
     const user = req.user
     const { id } = req.params
 
-    await Booking.deleteOne({_id:id})
+    await Booking.deleteOne({ _id: id })
 
     res.json({ message: 'Booking deleted successfully!' })
   } catch (error) {

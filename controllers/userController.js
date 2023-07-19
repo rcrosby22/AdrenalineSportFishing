@@ -1,32 +1,31 @@
-const User = require('../models/User');
-const { verifyToken } = require('../middleware/index')
+const User = require('../models/User')
 
 const updateUser = async (req, res) => {
   try {
-    const { email, phoneNumber } = req.body;
+    const { email, phoneNumber } = req.body
     console.log(email, phoneNumber)
     const user = await User.findOneAndUpdate(
-      { _id: req.user.id }, // Assuming you have authentication middleware to set req.user.id
+      { _id: req.user.id },
       { email, phoneNumber },
       { new: true }
-    );
-console.log(user.phoneNumber)
+    )
+    console.log(user.phoneNumber)
     if (!user) {
-      throw Error('User not found');
+      throw Error('User not found')
     }
 
-    res.json({ message: 'User updated successfully', user });
+    res.json({ message: 'User updated successfully', user })
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while updating the user' });
+    console.error(error)
+    res.status(500).json({ error: 'An error occurred while updating the user' })
   }
-};
+}
 const getUser = async (req, res) => {
-const user = await User.findById(req.user._id)
-return res.json(user.toJSON())
+  const user = await User.findById(req.user._id)
+  return res.json(user.toJSON())
 }
 
 module.exports = {
   updateUser,
   getUser
-};
+}

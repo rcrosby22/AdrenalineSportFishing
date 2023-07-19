@@ -1,11 +1,16 @@
-import React from 'react';
-import { Grid, Typography } from '@mui/material';
-import aboutImage1 from '/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/FB_IMG_1689166436220.jpg';
+import React from 'react'
+import { Grid, Typography } from '@mui/material'
+import aboutImage1 from '/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/FB_IMG_1689166436220.jpg'
 
 const About = () => {
   return (
     <Grid container spacing={2} alignItems="stretch">
-      <Grid item xs={12} md={6} style={{ display: 'flex', alignItems: 'center' }}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        style={{ display: 'flex', alignItems: 'center' }}
+      >
         <div style={{ flex: 1, height: '100%' }}>
           <img
             src={aboutImage1}
@@ -15,7 +20,7 @@ const About = () => {
         </div>
       </Grid>
       <Grid item xs={12} md={6}>
-        <Typography variant="h2" gutterBottom style={{color:'#1976d2'}}>
+        <Typography variant="h2" gutterBottom style={{ color: '#1976d2' }}>
           About Us
         </Typography>
         <Typography variant="body1" gutterBottom>
@@ -46,7 +51,7 @@ const About = () => {
         </Typography>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default About;
+export default About

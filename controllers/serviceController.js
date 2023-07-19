@@ -1,16 +1,16 @@
-const Service =require( '../models/Service');
+const Service = require('../models/Service')
 
 const getServiceById = (req, res) => {
-  const { id } = req.params;
-  const service = Service.getById(id);
+  const { id } = req.params
+  const service = Service.getById(id)
 
   if (!service) {
-    return res.status(404).json({ error: 'Service not found.' });
+    return res.status(404).json({ error: 'Service not found.' })
   }
 
-  res.render('/', {service,});
+  res.render('/', { service })
 }
 
 module.exports = {
-  getServiceById,
-};
+  getServiceById
+}

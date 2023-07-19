@@ -9,10 +9,9 @@ import React, { useState } from 'react'
 import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import About from './pages/About'
-import Gallery from './components/Gallery'
+
 import { useNavigate } from 'react-router-dom'
 import UpdateUser from './pages/UpdateUser'
-
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -20,12 +19,8 @@ const App = () => {
 
   const handleRegistration = async (userData) => {
     try {
-      // Submit the user's information to the backend
-
-      // Registration successful, perform any necessary actions (e.g., show a success message)
       console.log('Registration successful!')
     } catch (error) {
-      // Handle registration error (e.g., show an error message)
       console.error('Registration failed:', error.message)
     }
   }
@@ -35,7 +30,6 @@ const App = () => {
       <Navbar />
 
       <Routes>
-      
         <Route path="/user" element={<UpdateUser />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/about" element={<About />} />
@@ -45,10 +39,9 @@ const App = () => {
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/" element={<Home />} />
       </Routes>
-<footer>
-  <Footer/>
-</footer>
-     
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }

@@ -26,17 +26,21 @@ const Gallery = ({ photos }) => {
   }
 
   useEffect(() => {
-    const timer = setInterval(handleNext, 5000) // Switch photo every 5 seconds
-
+    const timer = setInterval(handleNext, 5000)
     return () => {
-      clearInterval(timer) // Clean up the timer on component unmount
+      clearInterval(timer)
     }
   }, [])
 
   return (
     <Grid container spacing={2} justifyContent="center">
       <Grid item>
-        <Typography variant="h3" align="center" gutterBottomstyle style={{color:'#1976d2'}}>
+        <Typography
+          variant="h3"
+          align="center"
+          gutterBottomstyle
+          style={{ color: '#1976d2' }}
+        >
           Our Past Adventures!
         </Typography>
         <Paper elevation={3}>
@@ -48,8 +52,6 @@ const Gallery = ({ photos }) => {
               e.preventDefault()
               handlePrev()
             }}
-            
-            
             style={imageStyle}
           />
         </Paper>

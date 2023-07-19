@@ -37,10 +37,7 @@ const BookingForm = (bookings, setBookings) => {
       console.log(newBooking)
       console.log(bookings)
       console.log([...bookings.bookings, newBooking.data])
-      bookings.setBookings([
-        ...bookings.bookings,
-        newBooking.data.booking
-      ])
+      bookings.setBookings([...bookings.bookings, newBooking.data.booking])
 
       console.log(newBooking.data)
     } catch (error) {

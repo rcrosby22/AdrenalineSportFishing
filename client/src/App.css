@@ -1,14 +1,17 @@
-/* Global Styles */
+
 body {
   background-color: rgb(142, 141, 141);
   min-height: 100vh;
   overflow: auto;
   margin: 0;
-  font-family: Arial, sans-serif;
-  color: #333; /* Default text color */
+  font-family: 'Montserrat', sans-serif;
+  color: #333; 
+}
+h1, h2, h3, h4, h5, h6, p{
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Header Styles */
+
 .header {
   background-color: #0066cc;
   color: #fff;
@@ -16,7 +19,7 @@ body {
   text-align: center;
 }
 
-/* Navbar Styles */
+
 .navbar {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -52,7 +55,7 @@ body {
   font-weight: bold;
 }
 
-/* Service Details Styles */
+
 .service-details-container {
   padding: 20px;
   background-color: #1976d2;
@@ -67,7 +70,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* Footer Styles */
+
 .footer-content {
   background-color: #1976d2;
   color: #ffffff;
@@ -86,7 +89,7 @@ body {
 }
 
 
-/* Hero Section Styles */
+
 #hero {
   background-image: url('/Users/rcrosby22/SEI-R-4-24/unit4/AdrenalineSportFishing/client/src/assets/images/Adrenaline_sport_fishing/Screenshot 2023-07-15 at 12.12.18 AM.jpeg');
   background-repeat: no-repeat;
@@ -111,12 +114,12 @@ body {
   font-size: 2rem;
 }
 
-/* Services Section Styles */
+
 .services-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  justify-content: space-between;
+
 }
 
 .service {
@@ -127,6 +130,7 @@ body {
   margin: 20px;
   max-width: 300px;
   border: #1976d2;
+  gap: 1rem
 
 ;
 }
@@ -160,7 +164,6 @@ body {
   margin-top: 5px;
 }
 
-/* Review Section Styles */
 .review-container {
   display: flex;
   overflow: hidden;
@@ -206,7 +209,6 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Why Us Section Styles */
 .Why {
   background-color: lightgrey;
   padding: 10rem;
@@ -222,4 +224,8 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+p {
+  text-align: 16px
+  ;
 }
