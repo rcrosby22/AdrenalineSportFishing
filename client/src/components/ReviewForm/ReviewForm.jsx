@@ -26,7 +26,7 @@ const ReviewForm = (props) => {
   return (
     <div className="ReviewForm">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#1976d2' }}>
-        We would love to hear about your trip
+        We would love to hear about your tri
       </h2>
       <form onSubmit={handleSubmit}>
         <FormControl>
