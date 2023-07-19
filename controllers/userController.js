@@ -20,10 +20,7 @@ const updateUser = async (req, res) => {
     res.status(500).json({ error: 'An error occurred while updating the user' })
   }
 }
-const getUser = async (req, res) => {
-  const user = await User.findById(req.user._id)
-  return res.json(user.toJSON())
-}
+
 
 module.exports = {
   updateUser,
