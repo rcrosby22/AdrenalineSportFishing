@@ -220,3 +220,17 @@ h1, h2, h3, h4, h5, h6, p{
   padding: 5rem;
 }
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/path/to/fonts.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adrenaline Sport Fishing Charters</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
