@@ -45,7 +45,9 @@ const App = () => {
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/" element={<Home />} />
       </Routes>
-
+<footer>
+  <Footer/>
+</footer>
      
     </div>
   )

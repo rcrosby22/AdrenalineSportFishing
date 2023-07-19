@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom'
+import Grid from '@mui/material/Grid'
 import FacebookButton from './FacebookButton'
 import FacebookIcon from '@mui/icons-material/Facebook'
 
@@ -13,43 +13,37 @@ const Navbar = () => {
       sx={{ py: 2 }}
     >
       <Grid item>
-      <FacebookButton />
+        <FacebookButton />
       </Grid>
       <Grid item>
         <ul className="nav-links" style={{ display: 'flex', gap: '1rem' }}>
-          <li>
-            <Link to="/booking" className="nav-link">
-              Book Now
-            </Link>
-          </li>
-          <li>
-            <Link to= "/user" className="nav-link">Update Account</Link>
-          </li>
-          <li>
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="nav-link">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/register" className="nav-link">
-              Register
-            </Link>
-          </li>
-          <li>
-            <Link to="/signin" className="nav-link">
-              Sign In
-            </Link>
-          </li>
+          <Link to="/booking" className="nav-link">
+            Book Now
+          </Link>
+
+          <Link to="/user" className="nav-link">
+            Update Account
+          </Link>
+
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+
+          <Link to="/about" className="nav-link">
+            About
+          </Link>
+
+          <Link to="/register" className="nav-link">
+            Register
+          </Link>
+
+          <Link to="/signin" className="nav-link">
+            Sign In
+          </Link>
         </ul>
-        
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
